@@ -78,7 +78,6 @@ bool Game2048::combine(vector<int>& row) {
 Game2048::Game2048() {
     grid.resize(GRID_SIZE, vector<int>(GRID_SIZE, 0));
     score = 0;
-    srand(time(0));
     addRandomTile();
     addRandomTile();
 }

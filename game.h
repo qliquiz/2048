@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
-#include <ctime>
 #include <iomanip> // для форматирования вывода
 #ifndef GAME_H
 #define GAME_H
