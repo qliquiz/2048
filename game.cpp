@@ -1,4 +1,4 @@
-#include "game.h"
+ï»¿#include "game.h"
 
 
 void Game2048::rotateGrid() {
@@ -18,14 +18,14 @@ void Game2048::addRandomTile() {
 
     for (int i = 0; i < GRID_SIZE; i++) {
         for (int j = 0; j < GRID_SIZE; j++) {
-            if (grid[i][j] == 0) emptyTiles.push_back(make_pair(i, j)); // çàïîìèíàåì ïóñòûå êëåòêè
+            if (grid[i][j] == 0) emptyTiles.push_back(make_pair(i, j)); // Ð·Ð°Ð¿Ð¾Ð¼Ð¸Ð½Ð°ÐµÐ¼ Ð¿ÑƒÑÑ‚Ñ‹Ðµ ÐºÐ»ÐµÑ‚ÐºÐ¸
         }
     }
 
     if (!emptyTiles.empty()) {
-        int index = rand() % emptyTiles.size(); // âûáèðàåì ñëó÷àéíóþ ïóñòóþ êëåòêó
-        int value = (rand() % 10 == 0) ? 4 : 2; // ñ âåðîÿòíîñòüþ 10% âûáèðàåì çíà÷åíèå 4, èíà÷å 2
-        grid[emptyTiles[index].first][emptyTiles[index].second] = value; // óñòàíàâëèâàåì ïëèòêó íà ïîëå
+        int index = rand() % emptyTiles.size(); // Ð²Ñ‹Ð±Ð¸Ñ€Ð°ÐµÐ¼ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½ÑƒÑŽ Ð¿ÑƒÑÑ‚ÑƒÑŽ ÐºÐ»ÐµÑ‚ÐºÑƒ
+        int value = (rand() % 10 == 0) ? 4 : 2; // Ñ Ð²ÐµÑ€Ð¾ÑÑ‚Ð½Ð¾ÑÑ‚ÑŒÑŽ 10% Ð²Ñ‹Ð±Ð¸Ñ€Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ 4, Ð¸Ð½Ð°Ñ‡Ðµ 2
+        grid[emptyTiles[index].first][emptyTiles[index].second] = value; // ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ð»Ð¸Ñ‚ÐºÑƒ Ð½Ð° Ð¿Ð¾Ð»Ðµ
     }
 }
 
@@ -50,8 +50,8 @@ bool Game2048::slide(vector<int>& row) {
     for (int i = 0; i < GRID_SIZE; i++) {
         if (row[i] != 0) {
             if (insertPos != i) {
-                row[insertPos] = row[i]; // ñäâèãàåì ïëèòêó
-                row[i] = 0; // îñâîáîæäàåì ñòàðóþ ïîçèöèþ
+                row[insertPos] = row[i]; // ÑÐ´Ð²Ð¸Ð³Ð°ÐµÐ¼ Ð¿Ð»Ð¸Ñ‚ÐºÑƒ
+                row[i] = 0; // Ð¾ÑÐ²Ð¾Ð±Ð¾Ð¶Ð´Ð°ÐµÐ¼ ÑÑ‚Ð°Ñ€ÑƒÑŽ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ
                 moved = true;
             }
             insertPos++;
@@ -65,8 +65,8 @@ bool Game2048::combine(vector<int>& row) {
     bool moved = false;
     for (int i = 0; i < GRID_SIZE - 1; i++) {
         if (row[i] != 0 && row[i] == row[i + 1]) {
-            row[i] *= 2; // óäâàèâàåì çíà÷åíèå ïëèòêè
-            row[i + 1] = 0; // îáíóëÿåì âòîðóþ ïëèòêó
+            row[i] *= 2; // ÑƒÐ´Ð²Ð°Ð¸Ð²Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¿Ð»Ð¸Ñ‚ÐºÐ¸
+            row[i + 1] = 0; // Ð¾Ð±Ð½ÑƒÐ»ÑÐµÐ¼ Ð²Ñ‚Ð¾Ñ€ÑƒÑŽ Ð¿Ð»Ð¸Ñ‚ÐºÑƒ
             score += row[i];
             moved = true;
         }
@@ -105,37 +105,37 @@ bool Game2048::move(Direction dir) {
         for (int j = 0; j < GRID_SIZE; j++) {
             switch (dir) {
             case UP:
-                row[j] = grid[j][i]; // çàïîëíÿåì ñòðîêó çíà÷åíèåì èç ñòîëáöà
+                row[j] = grid[j][i]; // Ð·Ð°Ð¿Ð¾Ð»Ð½ÑÐµÐ¼ ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÐµÐ¼ Ð¸Ð· ÑÑ‚Ð¾Ð»Ð±Ñ†Ð°
                 break;
             case DOWN:
-                row[j] = grid[GRID_SIZE - j - 1][i]; // çàïîëíÿåì ñòðîêó çíà÷åíèåì èç ñòîëáöà, â îáðàòíîì ïîðÿäêå
+                row[j] = grid[GRID_SIZE - j - 1][i]; // Ð·Ð°Ð¿Ð¾Ð»Ð½ÑÐµÐ¼ ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÐµÐ¼ Ð¸Ð· ÑÑ‚Ð¾Ð»Ð±Ñ†Ð°, Ð² Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾Ð¼ Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ
                 break;
             case LEFT:
-                row[j] = grid[i][j]; // çàïîëíÿåì ñòðîêó çíà÷åíèåì èç ñòðîêè
+                row[j] = grid[i][j]; // Ð·Ð°Ð¿Ð¾Ð»Ð½ÑÐµÐ¼ ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÐµÐ¼ Ð¸Ð· ÑÑ‚Ñ€Ð¾ÐºÐ¸
                 break;
             case RIGHT:
-                row[j] = grid[i][GRID_SIZE - j - 1]; // çàïîëíÿåì ñòðîêó çíà÷åíèåì èç ñòðîêè, â îáðàòíîì ïîðÿäêå
+                row[j] = grid[i][GRID_SIZE - j - 1]; // Ð·Ð°Ð¿Ð¾Ð»Ð½ÑÐµÐ¼ ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÐµÐ¼ Ð¸Ð· ÑÑ‚Ñ€Ð¾ÐºÐ¸, Ð² Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾Ð¼ Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ
                 break;
             }
         }
 
-        moved |= slide(row); // ñäâèãàåì ïëèòêè
-        moved |= combine(row); // îáúåäèíÿåì ïëèòêè
-        slide(row); // ïîâòîðíûé ñäâèã ïëèòîê (åñëè âîçìîæíî)
+        moved |= slide(row); // ÑÐ´Ð²Ð¸Ð³Ð°ÐµÐ¼ Ð¿Ð»Ð¸Ñ‚ÐºÐ¸
+        moved |= combine(row); // Ð¾Ð±ÑŠÐµÐ´Ð¸Ð½ÑÐµÐ¼ Ð¿Ð»Ð¸Ñ‚ÐºÐ¸
+        slide(row); // Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ñ‹Ð¹ ÑÐ´Ð²Ð¸Ð³ Ð¿Ð»Ð¸Ñ‚Ð¾Ðº (ÐµÑÐ»Ð¸ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾)
 
         for (int j = 0; j < GRID_SIZE; j++) {
             switch (dir) {
             case UP:
-                grid[j][i] = row[j]; // îáíîâëÿåì ñòîëáåö çíà÷åíèÿìè èç ñòðîêè
+                grid[j][i] = row[j]; // Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÐµÐ¼ ÑÑ‚Ð¾Ð»Ð±ÐµÑ† Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð¸Ð· ÑÑ‚Ñ€Ð¾ÐºÐ¸
                 break;
             case DOWN:
-                grid[GRID_SIZE - j - 1][i] = row[j]; // îáíîâëÿåì ñòîëáåö çíà÷åíèÿìè èç ñòðîêè, â îáðàòíîì ïîðÿäêå
+                grid[GRID_SIZE - j - 1][i] = row[j]; // Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÐµÐ¼ ÑÑ‚Ð¾Ð»Ð±ÐµÑ† Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð¸Ð· ÑÑ‚Ñ€Ð¾ÐºÐ¸, Ð² Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾Ð¼ Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ
                 break;
             case LEFT:
-                grid[i][j] = row[j]; // îáíîâëÿåì ñòðîêó çíà÷åíèÿìè èç ñòðîêè
+                grid[i][j] = row[j]; // Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÐµÐ¼ ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð¸Ð· ÑÑ‚Ñ€Ð¾ÐºÐ¸
                 break;
             case RIGHT:
-                grid[i][GRID_SIZE - j - 1] = row[j]; // îáíîâëÿåì ñòðîêó çíà÷åíèÿìè èç ñòðîêè, â îáðàòíîì ïîðÿäêå
+                grid[i][GRID_SIZE - j - 1] = row[j]; // Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÐµÐ¼ ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð¸Ð· ÑÑ‚Ñ€Ð¾ÐºÐ¸, Ð² Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾Ð¼ Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ
                 break;
             }
         }
