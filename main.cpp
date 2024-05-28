@@ -1,4 +1,4 @@
-﻿#include "game.cpp"
+﻿#include "game.h"
 #include <conio.h>
 
 

@@ -76,8 +76,8 @@ void Game::show() {
     cout << "Score: " << score << endl;
     for (int i = 0; i < FIELD_SIZE; i++) {
         for (int j = 0; j < FIELD_SIZE; j++) {
-            if (field[i][j] == 0) cout << setw(4) << ".";
-            else cout << setw(4) << field[i][j];
+            if (field[i][j] == 0) cout << "  .";
+            else cout << "  " << field[i][j];
         }
         cout << endl;
     }
