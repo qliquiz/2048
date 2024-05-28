@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <iomanip> // для форматирования вывода
 
 
 using namespace std;
