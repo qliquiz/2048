@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2048.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="game.h" />
   </ItemGroup>

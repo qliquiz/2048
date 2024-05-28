@@ -3,10 +3,10 @@
 
 
 int main() {
-    Game2048 game;
+    Game game;
 
     while (true) {
-        game.display();
+        game.show();
 
         if (game.isGameOver()) {
             cout << "Game Over!" << endl;
